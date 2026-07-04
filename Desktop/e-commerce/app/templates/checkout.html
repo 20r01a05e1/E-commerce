@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}Checkout{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+<h2 class="mb-4">Checkout</h2>
+
+<table class="table table-bordered">
+
+<tr>
+<th>Product</th>
+<th>Quantity</th>
+<th>Price</th>
+</tr>
+
+{% for item in cart_items %}
+
+<tr>
+
+<td>{{ item.product.name }}</td>
+
+<td>{{ item.quantity }}</td>
+
+<td>₹{{ item.product.price * item.quantity }}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<h3 class="text-end">
+Grand Total : ₹{{ total }}
+</h3>
+
+<div class="text-end mt-4">
+
+<a href="{{ url_for('main.place_order') }}"
+class="btn btn-success btn-lg">
+
+Place Order
+
+</a>
+
+</div>
+
+</div>
+
+{% endblock %}

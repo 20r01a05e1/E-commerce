@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}My Orders{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+<h2 class="mb-4">My Orders</h2>
+
+<table class="table table-striped">
+
+<tr>
+
+<th>Order ID</th>
+
+<th>Total</th>
+
+<th>Status</th>
+
+</tr>
+
+{% for order in orders %}
+
+<tr>
+
+<td>#{{ order.id }}</td>
+
+<td>₹{{ order.total_price }}</td>
+
+<td>
+
+<span class="badge bg-warning">
+
+{{ order.status }}
+
+</span>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</div>
+
+{% endblock %}

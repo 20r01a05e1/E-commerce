@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block title %}{{ product.name }}{% endblock %}
+
+{% block content %}
+
+<div class="container my-5">
+
+    <div class="row">
+
+        <!-- Product Image -->
+
+        <div class="col-lg-5">
+
+            <img src="{{ url_for('static', filename='uploads/' + product.image) }}" class="card-img-top product-image" alt="{{ product.name }}">
+        </div>
+
+        <!-- Product Details -->
+
+        <div class="col-lg-7">
+
+            <h2>{{ product.name }}</h2>
+
+            <hr>
+
+            <h3 class="text-success">
+
+                ₹{{ product.price }}
+
+            </h3>
+
+            <p class="mt-4">
+
+                {{ product.description }}
+
+            </p>
+
+            <h5>
+
+                Category :
+                <span class="text-primary">
+                    {{ product.category }}
+                </span>
+
+            </h5>
+
+            <h5>
+
+                Stock :
+
+                {% if product.stock > 0 %}
+
+                    <span class="text-success">
+                        In Stock ({{ product.stock }})
+                    </span>
+
+                {% else %}
+
+                    <span class="text-danger">
+                        Out of Stock
+                    </span>
+
+                {% endif %}
+
+            </h5>
+
+            <div class="mt-4">
+
+                <a href="{{ url_for('main.add_to_cart', id=product.id) }}"
+                   class="btn btn-warning btn-lg">
+
+                    Add to Cart
+
+                </a>
+
+                <a href="{{ url_for('main.products') }}"
+                   class="btn btn-outline-dark btn-lg">
+
+                    Continue Shopping
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
