@@ -111,6 +111,7 @@ During this project I gained practical experience in:
 - Jinja2 Template Engine
 - Git & GitHub
 
+🛒 Website hosted on - https://ajayk.pythonanywhere.com/
 
 ⭐ If you like this project
 
